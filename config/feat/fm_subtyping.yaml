@@ -1,0 +1,15 @@
+num_epoch: 75
+max_epoch: 75
+patient: 20
+
+cv_fold: 3
+val_ratio: 0.125
+val2test: true
+random_fold: true
+seed: 2021
+
+act: relu
+
+lr: 1e-4
+opt: adamw
+weight_decay: 0.

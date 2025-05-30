@@ -1,0 +1,49 @@
+num_epoch: 75
+max_epoch: 50
+patient: 10
+log_iter: 100
+
+seed: 2021
+cv_fold: 1
+val_ratio: 0.125
+val2test: true
+
+# data
+batch_size: 3
+same_psize: 512
+p_batch_size: 512
+img_transform: weak
+crop_scale: 0.25
+img_size: 256
+mul_scale_input: true
+mul_scale_ratio: 4.
+
+num_workers: 6
+pin_memory: true
+channels_last: true
+image_input: true
+lmdb: true
+prefetch_factor: 3
+
+# model
+model: e2e_r18_abmilx
+input_dim: 256
+inner_dim: 256
+act: gelu
+no_mil_bias: true
+mil_norm: ln
+# abmilx
+abx_attn_plus: true
+
+# train
+opt: adamw
+lr: 8e-5
+weight_decay: 0.
+warmup_epochs: 10
+test_type: both_ema
+amp: true
+no_deter_algo: true
+sdpa_type: torch
+sync_bn: true
+pad_enc_bs: true
+all_patch_train: true

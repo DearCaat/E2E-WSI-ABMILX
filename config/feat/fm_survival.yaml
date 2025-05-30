@@ -1,0 +1,16 @@
+num_epoch: 30
+max_epoch: 30
+patient: 10
+
+loss: nll_surv
+n_classes: 4
+act: gelu
+
+cv_fold: 3
+val_ratio: 0.
+random_seed: true
+seed: 2021
+
+lr: 1e-4
+opt: adamw
+weight_decay: 0.
