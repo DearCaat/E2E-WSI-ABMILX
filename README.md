@@ -250,7 +250,7 @@ abmilx_model = DAttentionX(
 # bag_prediction = abmilx_model(example_features) # Output shape: (1, n_classes)
 ```
 
-## Citing ABMILX
+<!-- ## Citing ABMILX
 
 If you find this repository useful for your research, please consider citing our paper:
 
@@ -261,7 +261,7 @@ If you find this repository useful for your research, please consider citing our
   journal={arXiv preprint arXiv:XXXX.XXXXX}, // Update with actual arXiv ID or conference proceedings
   year={2023} // Or the year of publication
 }
-```
+``` -->
 ## Contact
 
 For questions or issues, please open an issue on GitHub or contact [Wenhao Tang](mailto:whtang@mail.nankai.edu.cn).
