@@ -15,8 +15,7 @@ class BaseTrainer():
     def __init__(self, engine, args, **kwargs):
         self.engine = engine
 
-    def train(self, args, model, model_ema, loader, optimizer, device, amp_autocast, criterion, loss_scaler, scheduler,
-              epoch, model_others):
+    def train(self, args, model, model_ema, loader, optimizer, device, amp_autocast, criterion, loss_scaler, scheduler, epoch, model_others):
         start = time.time()
         loss_cls_meter = AverageMeter()
         loss_cl_meter = AverageMeter()
@@ -186,7 +185,6 @@ class BaseTrainer():
                 lrl = [param_group['lr'] for param_group in optimizer.param_groups]
                 lr = sum(lrl) / len(lrl)
 
-
                 if args.distributed:
                     reduced_loss = reduce_tensor(logit_loss.data, args.world_size)
                     loss_cls_meter.update(reduced_loss.item() * accum_steps * args.main_alpha, batch_size)
@@ -227,8 +225,6 @@ class BaseTrainer():
                         keep_num_meter_avg_format = ""
                     else:
                         keep_num_meter_avg_format = f'KN: {keep_num_meter.val:#.1f} ({keep_num_meter.avg:#.1f})  '
-
-
                     print(
                         f'Train: {epoch} [{update_idx:>4d}/{updates_per_epoch} '
                         f'({100. * (update_idx + 1) / updates_per_epoch:>3.0f}%)]  '

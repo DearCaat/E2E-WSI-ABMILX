@@ -1,13 +1,11 @@
 import torch
 import timm
 
-
 class ResNetEncoder(torch.nn.Module):
     def __init__(self, model_name: str = 'resnet50.tv_in1k', 
                  kwargs: dict = {'features_only': True, 'out_indices': (3,), 'pretrained': True, 'num_classes': 0}, 
                  pool: bool = True, pretrained: bool = True):
         super().__init__()
-        #assert kwargs.get('pretrained', False), 'only pretrained models are supported'
         if not pretrained:
             kwargs['pretrained'] = False
         self.model = timm.create_model(model_name, **kwargs)
@@ -25,4 +23,3 @@ class ResNetEncoder(torch.nn.Module):
         if self.pool:
             out = self.pool(out).squeeze(-1).squeeze(-1)
         return out
-

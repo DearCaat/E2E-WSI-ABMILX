@@ -149,20 +149,6 @@ class E2E(nn.Module):
                 parameter.requires_grad=True
 
     @torch.compiler.disable()
-    def get_feat_fn(self,x,ps):
-        self.encoder.finetune(False)
-        self.encoder.eval()
-        with torch.no_grad():
-            _feat = self.forward_encoder_batch(x,self.p_batch_size_v).detach().clone()
-        self.encoder.train()
-        self.encoder.finetune(True)
-
-        if ps is not None and not self.all_patch_train:
-            _feat = _feat[ps]
-
-        return _feat
-
-    @torch.compiler.disable()
     def forward_mil(self,x,return_img_feat=False,**kwargs):
         logits = self.mil(x,return_img_feat=return_img_feat,**kwargs)
         return logits
@@ -199,14 +185,10 @@ class E2E(nn.Module):
         return selected_indices, remaining_indices
 
     @torch.compiler.disable(recursive=False)
-    def forward(self,x,ps=None,B=None,return_feat=False,idx=None,feat=None,**mil_kwargs):
-        if type(x) in (tuple,list):
-            x_grad,x_ngrad = x
-        else:
-            x_grad = x
-            x_ngrad = None
-
+    def forward(self,x,ps=None,B=None,**mil_kwargs):
+        x_grad = x
         enc_kwargs = {}
+
         if self.training:
             if len(x_grad) <= self.p_batch_size:
                 _feats = self.forward_encoder(x_grad,**enc_kwargs)
@@ -218,9 +200,6 @@ class E2E(nn.Module):
         if ps is not None and not self.all_patch_train:
             _feats = _feats[ps]
         
-        if feat is not None:
-            _feats = torch.cat((_feats,feat),dim=0)
-
         if B is not None:
             M=int(_feats.size(0)/B)
             return self.forward_mil(_feats.view(B,M,-1),**mil_kwargs)

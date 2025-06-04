@@ -11,7 +11,7 @@ from .dtfd import DTFD
 from .rrt import RRTMIL
 from .e2e import E2E
 from .encoders import ResNetEncoder
-from .e2e_pooling import MeanPooling,Attention
+from .e2e_pooling import MeanPooling
 from .vit_mil import ViTMIL
 from .gigap import GIGAPMIL
 from .chief import CHIEF,ConvStem
@@ -19,7 +19,6 @@ from .utils import get_mil_model_params
 
 import os 
 from utils import ModelEmaV3
-
 
 def load_enc_ckp(args,enc,enc_init_path):
     try:
@@ -45,7 +44,6 @@ def load_enc_ckp(args,enc,enc_init_path):
             new_key = key.replace('resnet.', '')
         else:
             new_key = key
-        # 新创建的模型这里是空，暂且不知道原因
         if not 'model.layer3.1.bn2.num_batches_tracked' in new_key:
             new_state_dict[new_key] = enc_ckp[key]
     enc_ckp = new_state_dict
@@ -155,8 +153,6 @@ def build_mil(args,model_name,device,train_loader):
         model = MaxMIL(**genera_model_params).to(device)
     elif model_name == 'meanP':
         model = MeanPooling(**genera_model_params).to(device)
-    elif model_name == 'attn':
-        model = Attention(**genera_model_params).to(device)
     elif model_name == 'gigap':
         model = GIGAPMIL(**genera_model_params).to(device)
     elif model_name == 'chief':

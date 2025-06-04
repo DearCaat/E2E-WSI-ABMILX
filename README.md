@@ -2,13 +2,13 @@
 
 **Official PyTorch Implementation for "Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology"**
 
-[[arXiv Paper]]() <!-- 请在此处填入您的arXiv链接 -->
+[[arXiv Paper]](https://arxiv.org/abs/2506.02408)
 
 <p align="center">
   <img src="./doc/abx.png" width="80%" alt="ABMILX Overview">
 </p>
 
-> We pioneer the elucidation of the optimization challenges caused by sparse-attention MIL and propose a novel MIL approach called **ABMILX**. An E2E trained ResNet with ABMILX surpasses SOTA foundation models under the two-stage paradigm across multiple challenging benchmarks, while remaining computationally efficient (**< 10 RTX3090 hours**).
+> We pioneer the elucidation of the E2E optimization challenges caused by sparse-attention MIL and propose a novel MIL approach called **ABMILX**. An ***E2E trained ResNet with ABMILX surpasses SOTA foundation models*** under the two-stage paradigm across multiple challenging benchmarks, while remaining computationally efficient (**< 10 RTX3090 hours**).
 
 <p align="center">
   <img src="./doc/intro.png" width="60%" alt="Introductory Figure">
@@ -45,7 +45,7 @@ We recommend using Docker for a reproducible environment. Alternatively, you can
     *   `lmdb`
     *   `PyTurboJPEG`
     *   `scikit-survival`
-    *   `torch`, `torchvision` (ensure compatibility with your CUDA version)
+    *   `torch >= 2.5.1`, `torchvision` (ensure compatibility with your CUDA version)
 
     A complete list of requirements can be found in [requirements.txt](./requirements.txt).
     ```bash
