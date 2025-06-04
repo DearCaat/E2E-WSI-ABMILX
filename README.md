@@ -250,18 +250,21 @@ abmilx_model = DAttentionX(
 # bag_prediction = abmilx_model(example_features) # Output shape: (1, n_classes)
 ```
 
-<!-- ## Citing ABMILX
+## Citing ABMILX
 
 If you find this repository useful for your research, please consider citing our paper:
 
 ```bibtex
-@article{yang2023revisiting,  
-  title={Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology},
-  author={Yang, YourFirstName and Coauthor, FirstName and ...},  // Please complete author names
-  journal={arXiv preprint arXiv:XXXX.XXXXX}, // Update with actual arXiv ID or conference proceedings
-  year={2023} // Or the year of publication
+@misc{tang2025revisitingendtoendlearningslidelevel,
+      title={Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology}, 
+      author={Wenhao Tang and Rong Qin and Heng Fang and Fengtao Zhou and Hao Chen and Xiang Li and Ming-Ming Cheng},
+      year={2025},
+      eprint={2506.02408},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.02408}, 
 }
-``` -->
+```
 ## Contact
 
 For questions or issues, please open an issue on GitHub or contact [Wenhao Tang](mailto:whtang@mail.nankai.edu.cn).
