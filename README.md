@@ -21,18 +21,24 @@ We recommend using Docker for a reproducible environment. Alternatively, you can
 
 ### Option 1: Docker (Recommended)
 
-1.  Download the Docker Image: [Docker Image Link](https://pan.baidu.com/s/13QeFemIafgyeiPi9tAXnGg?pwd=dczd) (Password: dczd)
+1.  Download the Docker Image: [Docker Image Link](https://pan.baidu.com/s/1fC7T5GKBb3gMaHUIk_Ibuw?pwd=2025) (Password: 2025)
 2.  Load the Docker image:
     ```bash
-    docker load XXX.tar e2e_abmilx:latest
+    docker load -i XXX.tar
     ```
     (Replace `XXX.tar` with the downloaded file name.)
 3.  Run the Docker container:
     ```bash
-    docker run -it --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 \
-               -v /path/to/your/data:/path/in/container \
-               -v /path/to/your/code:/path/in/container \
-               e2e_abmilx:latest
+    docker run --gpus all -it --ipc=host --ulimit memlock=-1 --ulimit stack=67108864\
+                -v /path/to/your_code:/workspace/code \
+                -v /path/to/your_data:/workspace/dataset \
+                -v /path/to/your_output:/workspace/output \
+                --name e2e \
+                --runtime=nvidia \
+                -e NVIDIA_VISIBLE_DEVICES=all \
+                -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
+                -d e2e_abmilx:latest /bin/bash
+    ```
 ### Option 2: PyPI
 
 1.  Create a new Python environment (e.g., using Conda, Optional):
