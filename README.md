@@ -195,13 +195,11 @@ The project is organized as follows:
 ```
 ABMILX-master/
 ├── CLAM/                     # Submodule for CLAM-related functionalities (patching, etc.)
-├── README.md
 ├── config/                   # Configuration files for experiments
 │   ├── e2e/                  # End-to-end training configs
 │   └── feat/                 # Feature-based MIL training configs
 ├── datasets/                 # Dataset loading and preprocessing utilities
 ├── engines/                  # Core training and evaluation logic
-│   ├── __init__.py
 │   ├── base_engine.py        # Base class for training engines
 │   ├── common_mil.py         # Two-stage training and evaluation logic
 │   ├── e2e.py                # End-to-end training specific logic
