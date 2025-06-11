@@ -14,6 +14,16 @@
   <img src="./doc/intro.png" width="60%" alt="Introductory Figure">
 </p>
 
+## Table of Contents
+- [Installation](#installation)
+- [Data Preparation](#data-preparation)
+- [Project Structure](#project-structure)
+- [Training](#training)
+- [Use ABMILX in Two-Stage Framework](#use-abmilx-in-two-stage-framework)
+- [Citing ABMILX](#citing-abmilx)
+- [Contact](#contact)
+
+
 
 ## Installation
 
@@ -180,6 +190,29 @@ patches_tensor = (patches_tensor.float() - mean) / std
 env.close()
 ```
 
+## Project Structure
+The project is organized as follows:
+```
+ABMILX-master/
+├── CLAM/                     # Submodule for CLAM-related functionalities (patching, etc.)
+├── README.md
+├── config/                   # Configuration files for experiments
+│   ├── e2e/                  # End-to-end training configs
+│   └── feat/                 # Feature-based MIL training configs
+├── datasets/                 # Dataset loading and preprocessing utilities
+├── engines/                  # Core training and evaluation logic
+│   ├── __init__.py
+│   ├── base_engine.py        # Base class for training engines
+│   ├── common_mil.py         # Two-stage training and evaluation logic
+│   ├── e2e.py                # End-to-end training specific logic
+│   └── metrics.py            # Evaluation metrics
+├── labels/                   # CSV files with labels for datasets
+├── main.py                   # Main script to run experiments
+├── modules/                  # Model definitions and building blocks
+├── options.py                # Command-line argument parsing
+├── train.sh                  # Script for training MIL models
+├── train_dist.sh             # Script for distributed training
+```
 ## Training
 
 ### Train ResNet with ABMILX in End-to-End Framework
