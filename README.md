@@ -2,7 +2,7 @@
 
 **Official PyTorch Implementation for "Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology"**
 
-[[arXiv Paper]](https://arxiv.org/abs/2506.02408)
+[[arXiv Paper]](https://arxiv.org/abs/2506.02408) [[Preprocessed Tiles]](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) [[Extracted Features]](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4)
 
 <p align="center">
   <img src="./doc/abx.png" width="80%" alt="ABMILX Overview">
