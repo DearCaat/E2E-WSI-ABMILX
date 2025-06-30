@@ -2,7 +2,7 @@
 
 **Official PyTorch Implementation for "Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology"**
 
-[[arXiv Paper]](https://arxiv.org/abs/2506.02408) [[Preprocessed Tiles]](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) [[Extracted Features]](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4)
+[[arXiv Paper]](https://arxiv.org/abs/2506.02408) [[Preprocessed Tiles (Huggingface)]](https://huggingface.co/datasets/Dearcat/CPath_Image) [[Preprocessed Tiles (Baidu)]](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) [[Extracted Features]](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4)
 
 <p align="center">
   <img src="./doc/abx.png" width="80%" alt="ABMILX Overview">
@@ -73,7 +73,7 @@ We recommend using Docker for a reproducible environment. Alternatively, you can
 ### Download Preprocessed Data
 
 We provide preprocessed data for all datasets in LMDB format. You can download them from:
-[Baidu Netdisk](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) (Password: t179)
+[Hugginface](https://huggingface.co/datasets/Dearcat/CPath_Image), [Baidu Netdisk](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) (Password: t179)
 
 ### Preprocess Raw Data
 
