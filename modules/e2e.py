@@ -186,7 +186,10 @@ class E2E(nn.Module):
 
     @torch.compiler.disable(recursive=False)
     def forward(self,x,ps=None,B=None,**mil_kwargs):
-        x_grad,_ = x
+        if isinstance(x,tuple):
+            x_grad,_ = x
+        else:
+            x_grad = x
         enc_kwargs = {}
 
         if self.training:
