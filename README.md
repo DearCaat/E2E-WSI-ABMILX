@@ -2,7 +2,7 @@
 
 **Official PyTorch Implementation for "Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology", NeurIPS 2025**
 
-[[arXiv Paper]](https://arxiv.org/abs/2506.02408) [[Preprocessed Tiles (Huggingface)]](https://huggingface.co/datasets/Dearcat/CPath_Image) [[Preprocessed Tiles (Baidu)]](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) [[Extracted Features]](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4)
+[[arXiv Paper]](https://arxiv.org/abs/2506.02408) [[Preprocessed Tiles (Huggingface)]](https://huggingface.co/datasets/Dearcat/CPath_Image) [[Preprocessed Tiles (Baidu)]](https://pan.baidu.com/s/1H0P024gRIPgi3Xeu-xPLUg?pwd=t179) [[Extracted Features]](https://huggingface.co/datasets/Dearcat/CPathPatchFeature)
 
 <p align="center">
   <img src="./doc/abx.png" width="80%" alt="ABMILX Overview">
@@ -253,12 +253,13 @@ Use `train_dist.sh` for distributed training.
 ### Train MILs in Two-Stage Framework
 
 1.  **Download Pre-extracted Features** (Optional):
-    [Baidu Netdisk Link](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4) (Password: 5gf4)
+    [Baidu Netdisk Link](https://pan.baidu.com/s/1w2JsUFRkqaQrE-6w0C6qPQ?pwd=5gf4) (Password: 5gf4); 
+    [Huggingface](https://huggingface.co/datasets/Dearcat/CPathPatchFeature)
 
-2.  **Extract Features Yourself** (Optional):
+3.  **Extract Features Yourself** (Optional):
     Follow instructions from feature extraction frameworks like [TRIDENT](https://github.com/mahmoodlab/TRIDENT) or adapt the feature extraction part of [CLAM](https://github.com/mahmoodlab/CLAM/).
 
-3.  **Train MIL Model**:
+4.  **Train MIL Model**:
     ```bash
     bash train.sh --datasets=panda --project=MyProjectName \
     --output_path=results/panda_feat_abmil --dataset_root=$PATH_TO_FEATURES_DIRECTORY \
